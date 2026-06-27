@@ -1,0 +1,28 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# --- Secrets / credentials (NEVER commit these) ---
+.env
+*.key
+*.pem
+secrets.*
+
+# --- Local data & DB artifacts (commit code, not large/generated data) ---
+*.sqlite
+*.db
+# Note: keep sample CSVs you WANT in the repo by force-adding: git add -f sample.csv
+
+# --- Editor / OS noise ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
