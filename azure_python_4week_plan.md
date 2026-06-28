@@ -40,7 +40,7 @@ Knock these out so nothing blocks you later:
 
 - [x] **Create an Azure free account** (free tier + ~$200 credit for 30 days). Use a personal email, not a client tenant. *(done)*
 - [x] **Register for the Virtual Training Day "Introduction to Microsoft Azure"** (the renamed Azure Fundamentals / AZ-900 session). *(registered)* **Note (2026):** this now earns a **50% exam discount, NOT a free voucher.** No code is emailed — it auto-applies to the Microsoft Learn profile matching your registration email ~5 business days after you attend. Book AZ-900 signed in with that same email.
-- [ ] **Download the current AZ-900 "Skills measured" outline** from Microsoft Learn — study *only* what's listed.
+- [x] **AZ-900 "Skills measured" outline** — now a web-based Study Guide (no PDF download). Saved as a checklist in `week1-azure/az900_skills_outline.md`. Study *only* what's listed.
 - [ ] **Install your Python toolkit** (you'll need it Week 2, set it up now): [Python 3.x](https://www.python.org), [VS Code](https://code.visualstudio.com) + the Python extension. Optionally [Anaconda/Miniconda] for environments. Confirm `python --version` works in a terminal.
 - [ ] **Create a free GitHub account** + install Git. Make one repo: `azure-python-upskilling`. Everything you build goes here.
 - [ ] **Bookmark a flashcard tool** (Anki, or paper). You'll make cards daily.
