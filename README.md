@@ -36,6 +36,6 @@ Create the week folders as you reach them.
 - [ ] **Stretch** — DP-900 (Azure Data Fundamentals) next
 
 ## Setup checklist
-- [ ] Azure free account created
-- [ ] Python 3.x + VS Code (Python extension) installed
-- [ ] Git installed, this repo initialized and pushed to GitHub
+- [x] Azure free account created
+- [ ] Python 3.x + VS Code (Python extension) installed *(Python 3.8.3 present — upgrade to 3.12 before Week 4)*
+- [ ] Git installed, this repo initialized and pushed to GitHub *(initialized ✓ — push pending)*
