@@ -72,9 +72,40 @@ Analogy: **IaaS = empty plot** (I build the house) · **PaaS = furnished apartme
 
 ---
 
+## Resource groups (created hands-on in the portal ✅)
+
+- A **logical container** that groups related resources so I can **manage/delete them as a unit**.
+- **#1 benefit: shared lifecycle** — delete the resource group → *all resources inside are deleted together* (clean teardown, no stragglers billing me). This is how I protect my free credit: deploy into one RG, then delete the RG.
+- Also lets me apply **cost tracking, RBAC, tags, and policies** at the group level.
+- **Exam facts:**
+  1. Every resource lives in **exactly one** resource group.
+  2. An RG has a **region** (for its metadata) **but its resources can be in different regions**. (Trap!)
+  3. A resource **can be moved** between resource groups.
+- **Did it:** created a sandbox RG, deployed VM + storage + SQL + VNet into it, then **deleted the RG** → all gone at once. Good-habit check: glance at **Cost Management → Cost analysis** to confirm nothing's still billing.
+
+---
+
+## CapEx vs OpEx ✅
+
+| | On-prem OFSAA | Azure cloud |
+|---|---|---|
+| **Model** | **CapEx** | **OpEx** |
+| **Payment** | Big **upfront** purchase | **Pay-as-you-go**, ongoing/monthly |
+| **You own** | The hardware (a capital asset) | Nothing — you rent |
+
+- **CapEx** = capital expenditure — pay upfront, before/regardless of usage; own the asset.
+- **OpEx** = operational expenditure — ongoing recurring cost, pay only for what you use.
+- **Why OpEx/cloud is attractive:** no large upfront investment, cost **scales with usage**, turns big unpredictable purchases into **predictable** operating costs.
+
+**OpEx signal words** (add to Appendix A): "pay only for what you use / month to month" · "no upfront investment / no upfront cost" · "avoid buying hardware that might sit idle" · "consumption-based".
+
+**Scenario I nailed:** startup, no upfront cash, unpredictable load, wants to pay only for compute used → **OpEx**. Proof phrases: *"pay only for what you use, month to month"* + *"avoid buying expensive hardware that might sit idle."*
+
+---
+
 ## To review / still to cover on Day 1
 - [ ] Public / private / hybrid cloud models + use cases
-- [ ] CapEx vs OpEx (tie to buying OFSAA servers vs pay-as-you-go)
+- [x] ~~CapEx vs OpEx~~ ✅
 - [ ] Consumption-based / serverless pricing
 - [ ] Benefits: high availability, scalability, elasticity, reliability, predictability (Microsoft's exact wording)
-- [ ] Build task: create a Resource Group in the portal; find the cost/billing blade
+- [x] ~~Build task: create a Resource Group in the portal~~ ✅ (find the cost/billing blade next time)
