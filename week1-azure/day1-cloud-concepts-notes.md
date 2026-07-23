@@ -103,9 +103,55 @@ Analogy: **IaaS = empty plot** (I build the house) · **PaaS = furnished apartme
 
 ---
 
-## To review / still to cover on Day 1
-- [ ] Public / private / hybrid cloud models + use cases
-- [x] ~~CapEx vs OpEx~~ ✅
-- [ ] Consumption-based / serverless pricing
-- [ ] Benefits: high availability, scalability, elasticity, reliability, predictability (Microsoft's exact wording)
-- [x] ~~Build task: create a Resource Group in the portal~~ ✅ (find the cost/billing blade next time)
+## Public / private / hybrid cloud ✅
+
+> NOT about user access/permissions — it's about **dedicated vs shared** infrastructure, and who owns it.
+
+| Model | Infrastructure | Analogy | Best when… |
+|---|---|---|---|
+| **Public** | **Shared**, third-party (Microsoft) owned, multi-tenant | Apartment building | Lowest cost, max scale, no hardware to manage |
+| **Private** | **Dedicated to one org**, not shared | Your own house | Max control / privacy / compliance |
+| **Hybrid** | **Mix** of both, connected | House + rented storage unit | Keep *some* data private but use *some* cloud scale |
+
+- **Hybrid use cases:** keep sensitive/regulated data on-prem (e.g., bank/hospital compliance) while bursting to public cloud for scale; or gradual migration.
+- **Scenario I nailed:** hospital keeps patient records on-prem (private clue) + booking site with unpredictable spikes runs on Azure (public clue) → **Hybrid**. The "one clue private + one clue public = hybrid" test.
+
+---
+
+## Cloud benefits ✅ (know the confusable pairs)
+
+- **High availability** = stays **up**, minimal downtime (redundancy so outages are rare).
+- **Reliability** = **recovers** from failure / resilience, incl. disaster recovery across regions.
+- **Scalability** = ability to add/remove capacity (can be **manual**).
+  - **Vertical / "scale up"** = make one resource bigger (more CPU/RAM).
+  - **Horizontal / "scale out"** = add more resources (more VMs).
+- **Elasticity** = scaling that's **automatic & dynamic** in response to demand (elastic band — stretches & snaps back on its own).
+- **Predictability** = consistent performance + forecastable cost (Pricing Calculator).
+- Plus **security, governance, manageability**.
+
+**Exam traps + the deciding words:**
+| Confused pair | Tell |
+|---|---|
+| Scalability vs **Elasticity** | "automatic / dynamic / real-time / no manual intervention" → **Elasticity** |
+| High availability vs **Reliability** | "disaster / fails over / recover from failure" → **Reliability** |
+
+---
+
+## Consumption-based & serverless pricing ✅
+
+- **Consumption model** = pay only for what you use; no upfront, no paying for idle. (This is what makes cloud OpEx.)
+- **Serverless** = run code/logic with **no servers to manage**, auto-runs on a **trigger** (event/schedule/HTTP), auto-scales, **pay per execution**. Azure example: **Azure Functions** (I'll build one in Week 4).
+  - Misnomer: servers exist, I just never see/manage them.
+- **Serverless signal words:** "pay per execution / don't pay for idle" · "don't want to manage infrastructure" · "runs on a schedule / event / trigger" · "short job."
+- **Scenario I nailed:** daily 2-min script to process a transaction file, no idle cost, no infra to manage → **Serverless / Azure Functions**.
+
+---
+
+## Day 1 checklist — COMPLETE ✅
+- [x] Service models (IaaS/PaaS/SaaS)
+- [x] Resource groups (created + torn down hands-on)
+- [x] CapEx vs OpEx
+- [x] Public / private / hybrid cloud models + use cases
+- [x] Consumption-based / serverless pricing
+- [x] Benefits: HA, scalability, elasticity, reliability, predictability
+- [ ] Build task leftover: find the cost/billing blade in the portal (Cost Management)
