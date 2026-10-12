@@ -5,6 +5,7 @@ account_types = {
     "4000":"Revenue",
     "5000":"Expense",
     "6000":"Expense",
+    "0700":"Liability"
 }
 
 transactions = [
@@ -27,6 +28,7 @@ for txn in transactions:
     else:       
         print(f"DQ warning: transaction {txn['id']} has unknown account {txn['account']} - skipped")
         rejected.append(txn["id"])
+
 print(f"Rejected: {rejected}")
 print(f"Reconciliation: {len(valid_transactions)} valid + {len(rejected)} rejected  = {len(transactions)} total")
 amounts = []
@@ -55,3 +57,17 @@ for txn in valid_transactions:
 
 for account_type, num in counts.items():
     print(f"{account_type}: {num}")
+
+codes = set()
+codes.add("1000")
+codes.add("1000")
+print (codes)
+used_codes = set()
+
+for txn in valid_transactions:
+    used_codes.add(txn["account"])
+print(f"Used codes:{used_codes}")
+print(f"Number of Used Codes: {len(used_codes)}") 
+chart_codes = set(account_types)
+unused = chart_codes - used_codes
+print (f"Unused accounts: {unused}")
