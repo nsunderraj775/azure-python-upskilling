@@ -37,6 +37,10 @@ for txn in transactions:
             large_total = large_total + txn["amount"]
 print(f"Large Count: {large_count}")
 print(f"Large Total: ${large_total:,.2f}")
+counts = {}
+for txn in transactions:
+     account_type = account_types[txn["account"]]
+     counts[account_type] = counts.get(account_type,0) + 1
 
-
-   
+for account_type, num in counts.items():
+    print(f"{account_type}: {num}")
