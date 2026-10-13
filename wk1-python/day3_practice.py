@@ -83,3 +83,12 @@ print(pairs)
 for code,acct_type in sorted(pairs):
     print(f"{code} - {acct_type}")
 print(sorted(["1000", "900", "0700", "2000"]))
+large = []
+for txn in transactions:
+    if  txn["amount"] > 1000:
+         large.append(txn["amount"])
+large = [txn["amount"] for txn in valid_transactions if txn["amount"]  > 1000 ]    
+amounts_v2 = [txn["amount"] for txn in valid_transactions]
+print(f"Amounts V2: {amounts_v2}")  
+large_ids = [txn['id'] for txn in valid_transactions if txn['amount'] > 1000 ]
+print(f"Large ids: {large_ids}")
