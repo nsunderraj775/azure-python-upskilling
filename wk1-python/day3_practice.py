@@ -71,3 +71,15 @@ print(f"Number of Used Codes: {len(used_codes)}")
 chart_codes = set(account_types)
 unused = chart_codes - used_codes
 print (f"Unused accounts: {unused}")
+all_codes = set()
+for txn in transactions:
+     all_codes.add(txn["account"])
+bad_codes = all_codes - chart_codes
+print(f"Account not in the chart:{bad_codes}")
+pair = ("1000", "Asset")
+pairs = list(account_types.items())
+print(pairs)
+##pairs[0][0] = "9999"
+for code,acct_type in sorted(pairs):
+    print(f"{code} - {acct_type}")
+print(sorted(["1000", "900", "0700", "2000"]))
