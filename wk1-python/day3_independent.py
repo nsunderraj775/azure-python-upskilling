@@ -1,7 +1,7 @@
 deposits = [
 
 {"branch": "ATL", "customer": "C01","amount": 1500.00},
-{"branch": "PHL", "customer": "C02","amount": 250.00},
+{"branch": "PHL", "customer": "C02","amount": 2600.00},
 {"branch": "ATL", "customer": "C03","amount": 4200.00},
 {"branch": "NYC", "customer": "C01","amount": 800.00},
 {"branch": "PHL", "customer": "C04","amount": 3100.00},
@@ -21,9 +21,15 @@ print(f"Number of customers: {len(customers)}")
 bigcustomers = [dep['customer'] for dep in deposits if dep['amount'] > 1000 ]
 print(f"Customer having more than 1000: {bigcustomers}")
 top_branch =  ""
+top_branch1 = ""
 top_amount = 0
+
 for branch,amount in branchtotals.items():
      if amount > top_amount:
         top_amount = amount
-        top_branch = branch
+        top_branch = branch         
 print(f"Top branch: {top_branch} with ${top_amount:,.2f}")
+highamount = []
+top_amount = max(branchtotals.values())
+top_branches = [branch for branch, amount in branchtotals.items() if amount == top_amount]
+print(f"Top branches: {top_branches} with ${top_amount:,.2f}")
