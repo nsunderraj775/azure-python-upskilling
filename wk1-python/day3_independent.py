@@ -13,5 +13,17 @@ for dep in deposits:
      branchtotals[branch] = branchtotals.get(branch,0) + dep["amount"]
 for deposit,totals in branchtotals.items():
     print(f"{deposit}: ${totals:,.2f}")
-
-
+customers= set()
+for dep in deposits:
+     customers.add(dep["customer"])
+print(f"Customers:{customers}")
+print(f"Number of customers: {len(customers)}")
+bigcustomers = [dep['customer'] for dep in deposits if dep['amount'] > 1000 ]
+print(f"Customer having more than 1000: {bigcustomers}")
+top_branch =  ""
+top_amount = 0
+for branch,amount in branchtotals.items():
+     if amount > top_amount:
+        top_amount = amount
+        top_branch = branch
+print(f"Top branch: {top_branch} with ${top_amount:,.2f}")
