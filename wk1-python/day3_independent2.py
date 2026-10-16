@@ -7,6 +7,7 @@ transactions = [
     {"id": 106, "customer": "C01", "country": "US", "type": "atm",      "amount": 300.00},
     {"id": 107, "customer": "C04", "country": "US", "type": "purchase", "amount": 2500.00},
     {"id": 108, "customer": "C03", "country": "ZZ", "type": "transfer", "amount": 9800.00},
+    {"id": 109, "customer": "C04", "country": "US", "type": "transfer", "amount": 50.00},
 ]
 ##“this is the dictionary”
 custtotals = {}
@@ -36,3 +37,6 @@ for txn_type,counts in counttype.items():
     print(f"{txn_type}: {counts}")
 greater = [txn['id'] for txn in transactions if txn['amount'] > 10000 ]
 print(f"transaction ids greater than 10000: {greater}")
+
+rangeamount = [txn['id'] for txn in transactions if txn['amount']< 10000  and txn['amount']>= 9000 and txn['type'] == "transfer"]
+print(f"Find the transfer type for the ids range less 10000: {rangeamount}")
