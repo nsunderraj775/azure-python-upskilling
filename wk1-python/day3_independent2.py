@@ -45,3 +45,6 @@ rangeamount = [txn['id'] for txn in transactions if txn['amount']< 10000  and tx
 print(f"Find the transfer type for the ids range less 10000: {rangeamount}")
 highrisk = {txn['customer'] for txn in transactions  if txn['country'] in  high_risk_countries}
 print(f"cusotmer id for the high risk countries: {highrisk}")
+top_amount = max(custtotals.values())
+top_customers = [customer for customer, amount in custtotals.items() if amount == top_amount]
+print(f"Top Customer: {top_customers} with ${top_amount:,.2f}")
