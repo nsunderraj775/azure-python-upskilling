@@ -33,5 +33,6 @@ def monthly_payment(principal, annual_rate, months =60):
     n = months  
     M = principal * r / (1 -(1 + r)** -n)
     return M
+    print(r)    
 print(format_money(monthly_payment(20000, 0.06, 12)))
-print(format_money(monthly_payment(30000, 0.07, 60)))
+print(format_money(monthly_payment(30000, 0.07)))
