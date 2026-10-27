@@ -3,6 +3,7 @@ from ledger import format_money
 from flask import Flask,render_template
 
 app = Flask(__name__)
+HIGH_RISK_COUNTRIES = {"IR", "KP", "SY"}
 transaction = ([
 {"id": 101, "customer": "C001", "amount":  2500.00, "country": "US", "type": "wire"},
 {"id": 102, "customer": "C002", "amount": 15000.00, "country": "US", "type": "cash"},
@@ -28,7 +29,7 @@ def is_structuring(txn):
         return False
     
 def is_highrisk(txn):
-    if txn["country"] in ("IR","KP"):
+    if txn["country"] in HIGH_RISK_COUNTRIES:
         return True
     else:
         return False
