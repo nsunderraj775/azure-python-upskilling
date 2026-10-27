@@ -14,7 +14,7 @@
 <td>{{ format_money(txn.amount) }}</td>
 <td>{{ txn.country }}</td>
 <td>{{ txn.type}}</td>
-<td>{% if is_ctr(txn) %}CTR{% endif %} {% if is_structuring(txn) %}structuring{% endif %}</td>
+<td>{% if is_ctr(txn) %}CTR{% endif %} {% if is_structuring(txn) %}structuring{% endif %}  {% if is_highrisk(txn) %}highrisk{% endif %} </td>
 </tr>
 {% endfor %}
 </table>
