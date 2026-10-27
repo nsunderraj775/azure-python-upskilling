@@ -11,7 +11,8 @@ transaction = ([
 {"id": 104, "customer": "C001", "amount":   450.75, "country": "GB", "type": "card"},
 {"id": 105, "customer": "C004", "amount": 72000.00, "country": "IR", "type": "wire"},
 {"id": 106, "customer": "C002", "amount":  9900.00, "country": "US", "type": "cash"},
-{"id": 107, "customer": "C005", "amount": 10900.00, "country": "KP", "type": "cash"},
+{"id": 107, "customer": "C007", "amount": 10900.00, "country": "KP", "type": "cash"},
+{"id": 108, "customer": "C008", "amount": 10900.00, "country": "SY", "type": "cash"},
 
 
 ])
