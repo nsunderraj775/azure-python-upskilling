@@ -5,6 +5,7 @@
 <th>amount</th>
 <th>country</th>
 <th>type</th>
+<th>Flag</th>
 </tr>
 {% for txn in transactions %}
 <tr>
@@ -13,6 +14,7 @@
 <td>{{ format_money(txn.amount) }}</td>
 <td>{{ txn.country }}</td>
 <td>{{ txn.type}}</td>
+<td>{% if is_ctr(txn) %}CTR{% endif %} {% if is_structuring(txn) %}structuring{% endif %}</td>
 </tr>
 {% endfor %}
 </table>
