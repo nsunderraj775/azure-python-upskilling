@@ -4,25 +4,17 @@ from flask import Flask,render_template
 
 app = Flask(__name__)
 HIGH_RISK_COUNTRIES = {"IR", "KP", "SY"}
-transaction = ([
-{"id": 101, "customer": "C001", "amount":  2500.00, "country": "US", "type": "wire"},
-{"id": 102, "customer": "C002", "amount": 15000.00, "country": "US", "type": "cash"},
-{"id": 103, "customer": "C003", "amount":  9500.00, "country": "US", "type": "cash"},
-{"id": 104, "customer": "C001", "amount":   450.75, "country": "GB", "type": "card"},
-{"id": 105, "customer": "C004", "amount": 72000.00, "country": "IR", "type": "wire"},
-{"id": 106, "customer": "C002", "amount":  9900.00, "country": "US", "type": "cash"},
-{"id": 107, "customer": "C007", "amount": 10900.00, "country": "KP", "type": "cash"},
-{"id": 108, "customer": "C008", "amount": 10900.00, "country": "SY", "type": "cash"},
-
-])
 
 def load_transactions():
     newlist = []
     with open("transactions.csv", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            row["amount"] = float(row["amount"])
-            newlist.append(row)
+            try:
+                row["amount"] = float(row["amount"])
+                newlist.append(row)
+            except ValueError:
+                                print(f"DQ warning: transaction {row['id']} has invalid amount {row['amount']} - skipped")
         return newlist
 
 def is_ctr(txn):
