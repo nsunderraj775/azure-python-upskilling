@@ -1,0 +1,9 @@
+id,customer,amount,country,type
+101,C001,8500.00,US,wire
+102,C002,15000.00,US,cash
+103,C003,9700.00,US,cash
+104,C001,8450.75,GB,card
+105,C004,72000.00,IR,wire
+106,C002,9400.00,US,cash
+107,C007,10900,KP,cash
+108,C008,12500,SY,cash

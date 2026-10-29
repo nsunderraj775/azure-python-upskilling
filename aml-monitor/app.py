@@ -1,4 +1,4 @@
-
+import csv  
 from ledger import format_money
 from flask import Flask,render_template
 
@@ -14,8 +14,16 @@ transaction = ([
 {"id": 107, "customer": "C007", "amount": 10900.00, "country": "KP", "type": "cash"},
 {"id": 108, "customer": "C008", "amount": 10900.00, "country": "SY", "type": "cash"},
 
-
 ])
+
+def load_transactions():
+    newlist = []
+    with open("transactions.csv", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            row["amount"] = float(row["amount"])
+            newlist.append(row)
+        return newlist
 
 def is_ctr(txn):
     if txn["amount"] > 10000 and txn["type"] =="cash":
@@ -34,6 +42,8 @@ def is_highrisk(txn):
         return True
     else:
         return False
+
+
     
     
 @app.route("/")
@@ -46,10 +56,12 @@ def about():
 
 @app.route("/transactions")
 def transactions():
-    return render_template("transactions.html",transactions=transaction,format_money = format_money,is_ctr=is_ctr,is_structuring=is_structuring,is_highrisk=is_highrisk)
+    return render_template("transactions.html",transactions=load_transactions(),format_money = format_money,is_ctr=is_ctr,is_structuring=is_structuring,is_highrisk=is_highrisk)
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
 
 
 
