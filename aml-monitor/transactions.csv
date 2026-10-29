@@ -8,3 +8,4 @@ id,customer,amount,country,type
 107,C007,10900,KP,cash
 108,C008,12500,SY,cash
 109,C009,abc,US,cash
+110,C010,,US,cash

@@ -6,7 +6,8 @@ app = Flask(__name__)
 HIGH_RISK_COUNTRIES = {"IR", "KP", "SY"}
 
 def load_transactions():
-    newlist = []
+    newlist  = []
+    rejected = []
     with open("transactions.csv", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -15,7 +16,8 @@ def load_transactions():
                 newlist.append(row)
             except ValueError:
                                 print(f"DQ warning: transaction {row['id']} has invalid amount {row['amount']} - skipped")
-        return newlist
+                                rejected.append(row) 
+        return newlist,rejected                                                                                         
 
 def is_ctr(txn):
     if txn["amount"] > 10000 and txn["type"] =="cash":
@@ -48,7 +50,8 @@ def about():
 
 @app.route("/transactions")
 def transactions():
-    return render_template("transactions.html",transactions=load_transactions(),format_money = format_money,is_ctr=is_ctr,is_structuring=is_structuring,is_highrisk=is_highrisk)
+     good, bad = load_transactions()
+     return render_template("transactions.html",transactions=good,rejected=bad,format_money = format_money,is_ctr=is_ctr,is_structuring=is_structuring,is_highrisk=is_highrisk)
 
 if __name__ == "__main__":
     app.run(debug=True)
